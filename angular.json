@@ -13,6 +13,18 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
+      "i18n": {
+        "sourceLocale": {
+          "baseHref": "/",
+          "code": "en-US"
+        },
+        "locales": {
+          "es-CO": {
+            "baseHref": "/",
+            "translation": "src/locale/messages.es-CO.xlf"
+          }
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -23,13 +35,8 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -60,6 +67,12 @@
                   "maximumError": "10kb"
                 }
               ]
+            },
+            "es-CO": {
+              "index": {
+                "input": "src/index.es-CO.html"
+              },
+              "localize": ["es-CO"]
             }
           }
         },
@@ -71,6 +84,9 @@
           "configurations": {
             "production": {
               "browserTarget": "angular-issue17684-repro:build:production"
+            },
+            "es-CO": {
+              "browserTarget": "WCICFrontPage:build:es-CO"
             }
           }
         },
@@ -87,13 +103,8 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/styles.scss"],
             "scripts": []
           }
         },
@@ -105,9 +116,7 @@
               "tsconfig.spec.json",
               "e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {
@@ -123,6 +132,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "angular-issue17684-repro"
+    }
+  },
+  "defaultProject": "angular-issue17684-repro",
+  "cli": {
+    "analytics": "31ef34d5-1a56-4248-b103-c3f272a331dc"
+  }
 }
